@@ -19,3 +19,13 @@ export const retrievedBookList = createAction(
   '[Book List] Retrieve Books Success',
   props<{ Book: Book[] }>()
 )
+
+export const createBook = createAction(
+  '[Book List] Create Book',
+  props<{ book: Book }>()
+)
+
+export const deleteBook = createAction(
+  '[Book List] Delete Book',
+  props<{ bookId: string }>()
+)

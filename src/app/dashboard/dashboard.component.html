@@ -1,0 +1,10 @@
+<div>Books count: {{(books$ | async).length}}</div>
+
+<div>Selected count: {{(bookCollection$ | async).length}} </div>
+
+<br />
+
+<h2>App State</h2>
+<br />
+
+<textarea [innerText]="appStateFormatter"></textarea>

@@ -13,12 +13,16 @@ import { EffectsModule } from '@ngrx/effects';
 import { BookEffects } from './state/books.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateBookComponent } from './create-book/create-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
-    BookCollectionComponent
+    BookCollectionComponent,
+    DashboardComponent,
+    CreateBookComponent
   ],
   imports: [
     BrowserModule,

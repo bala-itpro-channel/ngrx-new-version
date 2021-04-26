@@ -39,6 +39,10 @@ export class AppComponent {
     this.store.dispatch(AppActions.removeBook({ bookId }));
   }
 
+  onDelete(bookId) {
+    this.store.dispatch(AppActions.deleteBook( { bookId } ))
+  }
+
 }
 
 

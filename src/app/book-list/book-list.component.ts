@@ -9,4 +9,5 @@ import { Book } from './../state/app.model';
 export class BookListComponent {
   @Input() books: Array<Book>;
   @Output() add = new EventEmitter();
+  @Output() delete = new EventEmitter();
 }
