@@ -34,7 +34,7 @@ export class AppComponent {
   onAdd(bookId: string) {
     this.store.dispatch(AppActions.addBook( { bookId } ));
   }
-  
+
   onRemove(bookId) {
     this.store.dispatch(AppActions.removeBook({ bookId }));
   }

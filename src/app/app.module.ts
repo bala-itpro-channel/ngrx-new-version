@@ -15,7 +15,17 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateBookComponent } from './create-book/create-book.component';
+import { Router, RouterModule, Routes } from '@angular/router';
+import { reducers, metaReducers } from './reducers';
 
+// routes
+export const ROUTES: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'products' },
+  { 
+    path: 'products',
+    loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+  }
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +38,15 @@ import { CreateBookComponent } from './create-book/create-book.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({books: bookReducer, collection: collectionReducer}),
+    RouterModule.forRoot(ROUTES),
+    // StoreModule.forRoot({books: bookReducer, collection: collectionReducer}),
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
     EffectsModule.forRoot([BookEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
