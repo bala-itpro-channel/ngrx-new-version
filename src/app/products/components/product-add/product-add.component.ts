@@ -16,7 +16,7 @@ export class ProductAddComponent implements OnInit {
   onSubmit(f: NgForm) {
     const productObserver = {
       next: product => (
-        this.router.navigate(["/product/list"]), console.log("success")
+        this.router.navigate(["/products/list"]), console.log("success")
       ),
       error: err => console.error(err)
     };

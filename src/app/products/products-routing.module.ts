@@ -6,7 +6,7 @@ import { ProductEditComponent } from "./components/product-edit/product-edit.com
 import { ProductListComponent } from "./components/product-list/product-list.component";
 
 const routes: Routes = [
-  { path: "", pathMatch: 'full', redirectTo: 'products' },
+  { path: "", pathMatch: 'full', redirectTo: 'list' },
   { path: "get/:id", component: ProductComponent },
   { path: "add", component: ProductAddComponent },
   { path: "edit/:id", component: ProductEditComponent },

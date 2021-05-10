@@ -17,23 +17,30 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { reducers, metaReducers } from './reducers';
-
+import { BookContainerComponent } from './container/book-container/book-container.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { AngularCalendarComponent } from './angular-calendar/angular-calendar.component';
 // routes
 export const ROUTES: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'products' },
+  { path: '', pathMatch: 'full', redirectTo: 'books' },
+  { path: 'books', component: BookContainerComponent },
+  { path: 'calendar', component: AngularCalendarComponent },
   { 
     path: 'products',
     loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
   }
 ];
 @NgModule({
-  declarations: [
+  declarations: [	
+    BookContainerComponent,
     AppComponent,
     BookListComponent,
     BookCollectionComponent,
     DashboardComponent,
-    CreateBookComponent
-  ],
+    CreateBookComponent,
+    AngularCalendarComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -51,7 +58,11 @@ export const ROUTES: Routes = [
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
     const productsObserver = {
       next: () => {
         console.log("Product Deleted");
-        this.router.navigate(["/product/list"]);
+        this.router.navigate(["/products/list"]);
       },
       error: err => console.error(err)
     };

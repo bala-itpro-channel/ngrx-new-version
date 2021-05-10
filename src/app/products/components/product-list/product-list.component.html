@@ -4,7 +4,7 @@
         <div class="text-right">
             <button type="button"
                     class="btn btn-success"
-                    [routerLink]="['/product/add']">Add New Product <i class="fas fa-plus"></i></button>
+                    [routerLink]="['/products/add']">Add New Product <i class="fa fa-plus"></i></button>
         </div>
 
         <div class="row">
@@ -26,13 +26,13 @@
                              aria-label="Basic example">
                             <button type="button"
                                     class="btn btn-info"
-                                    [routerLink]="['/product/get', product.id]"><i class="fas fa-search"></i></button>
+                                    [routerLink]="['/products/get', product.id]"><i class="fa fa-search"></i></button>
                             <button type="button"
                                     class="btn btn-warning"
-                                    [routerLink]="['/product/edit', product.id]"><i class="fas fa-edit"></i></button>
+                                    [routerLink]="['/products/edit', product.id]"><i class="fa fa-edit"></i></button>
                             <button type="button"
                                     class="btn btn-danger"
-                                    (click)="deleteProduct(product.id)"><i class="fas fa-trash"></i></button>
+                                    (click)="deleteProduct(product.id)"><i class="fa fa-trash"></i></button>
                         </div>
                     </div>
                 </div>
