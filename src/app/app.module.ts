@@ -13,7 +13,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { BookEffects } from './state/books.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { reducers, metaReducers } from './reducers';
@@ -22,6 +21,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { AngularCalendarComponent } from './angular-calendar/angular-calendar.component';
 import { HeaderComponent } from './header/header.component';
+import { SharedModule } from './shared/shared.module';
 // routes
 export const ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'books' },
@@ -38,7 +38,6 @@ export const ROUTES: Routes = [
     AppComponent,
     BookListComponent,
     BookCollectionComponent,
-    DashboardComponent,
     CreateBookComponent,
     AngularCalendarComponent,
     HeaderComponent
@@ -47,6 +46,7 @@ export const ROUTES: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    SharedModule,
     RouterModule.forRoot(ROUTES),
     // StoreModule.forRoot({books: bookReducer, collection: collectionReducer}),
     StoreModule.forRoot(reducers, {

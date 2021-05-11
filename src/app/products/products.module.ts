@@ -12,6 +12,7 @@ import { StoreModule } from "@ngrx/store";
 import * as fromProduct from "./store/product.reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { ProductEffects } from "./store/product.effects";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProductEffects } from "./store/product.effects";
     CommonModule,
     ProductsRoutingModule,
     FormsModule,
+    SharedModule,
     StoreModule.forFeature(
       fromProduct.productsFeatureKey,
       fromProduct.reducer

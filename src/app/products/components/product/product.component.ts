@@ -8,6 +8,9 @@ import { Store, select } from "@ngrx/store";
 import { ProductState } from "../../store/product.reducer";
 import * as fromActions from "../../store/product.actions";
 import { selectedProduct } from "../../store/product.selectors";
+import { AppState } from "src/app/state/app.state";
+import { selectBookCollection, selectBooks } from "src/app/state/books.selectors";
+import { Book } from "src/app/state/app.model";
 
 @Component({
   selector: "app-product",
@@ -16,12 +19,14 @@ import { selectedProduct } from "../../store/product.selectors";
 })
 export class ProductComponent implements OnInit {
   product$: Observable<Product>;
-
+  public books$: Observable<any>;
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private service: ProductService,
-    private store: Store<ProductState>
+    private store: Store<ProductState>,
+    private storeRoot: Store<AppState>
   ) {}
 
   ngOnInit() {
@@ -30,6 +35,9 @@ export class ProductComponent implements OnInit {
     );
 
     this.product$ = this.store.pipe(select(selectedProduct));
+    this.books$ = this.storeRoot.pipe(
+      select(selectBooks)
+    );
   }
 
   deleteProduct(id: string) {

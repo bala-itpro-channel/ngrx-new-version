@@ -28,9 +28,6 @@ export class BookContainerComponent implements OnInit {
       select(selectBooks)
     );
     this.bookCollection$ = this.store.pipe(select(selectBookCollection));
-    // this.booksService
-    //   .getBooks()
-    //   .subscribe((Book) => this.store.dispatch(AppActions.retrievedBookList({ Book })));
   }
 
   onAdd(bookId: string) {
