@@ -1,20 +1,19 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Book } from '../state/app.model';
 import { AppState } from '../state/app.state';
 import { selectBookCollection, selectBooks } from '../state/books.selectors';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   public books$: Observable<any>;
   public bookCollection$: Observable<any>;
   public appState: any;
-  public appStateFormatter: string;
+  public formattedData = '';
 
   constructor(private store: Store<AppState>) {
   }
@@ -26,13 +25,8 @@ export class DashboardComponent implements OnInit {
 
     this.store.subscribe((data) => {
       this.appState = data;
-      console.log('------------------------');
-      console.log(data);
-      console.log('------------------------');
-
-      this.appStateFormatter = JSON.stringify(data, undefined, 4);
-    })
-
+      this.formattedData = JSON.stringify(this.appState, undefined, 4);
+    });
     this.bookCollection$ = this.store.pipe(select(selectBookCollection));
   }
 }

@@ -21,6 +21,7 @@ import { BookContainerComponent } from './container/book-container/book-containe
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { AngularCalendarComponent } from './angular-calendar/angular-calendar.component';
+import { HeaderComponent } from './header/header.component';
 // routes
 export const ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'books' },
@@ -39,7 +40,8 @@ export const ROUTES: Routes = [
     BookCollectionComponent,
     DashboardComponent,
     CreateBookComponent,
-    AngularCalendarComponent
+    AngularCalendarComponent,
+    HeaderComponent
    ],
   imports: [
     BrowserModule,

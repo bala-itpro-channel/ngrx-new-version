@@ -1,11 +1,28 @@
-<div
-  class="book-item"
-  *ngFor="let book of books">
-  <p>{{book.volumeInfo.title}}</p><span> by {{book.volumeInfo.authors}}</span>
-  <button
-    (click)="add.emit(book.id)"
-    data-test="add-button">Add to Collection</button>
-  <button
-    (click)="delete.emit(book.id)"
-    data-test="add-button">Delete</button>
+<div>
+  <div class="row header">
+    <div class="col-sm-6">Title</div>
+    <div class="col-sm-3">Author</div>
+    <div class="col-sm-3"></div>
+  </div>
+  <ng-container *ngTemplateOutlet="books && books.length ? recordsTmpl : noRecordsTmpl">
+
+  </ng-container>
 </div>
+<ng-template #recordsTmpl>
+  <div
+    class="row book-item" *ngFor="let book of books">
+    <div class="col-sm-6">{{book.volumeInfo.title}}</div>
+    <div class="col-sm-3">{{book.volumeInfo.authors}}</div>
+    <div class="col-sm-3 add-delete">
+      <button class="btn btn-primary"
+        (click)="add.emit(book.id)"
+        data-test="add-button">Add to Collection <i class="fas fa-plus" (click)="delete.emit(book.id)"></i>
+      </button>
+      <i class="fas fa-trash-alt" (click)="delete.emit(book.id)"></i>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noRecordsTmpl>
+  <div>No books found</div>
+</ng-template>

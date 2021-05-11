@@ -9,3 +9,19 @@ p {
   font-style: italic;
   margin: 0 0 5px;
 }
+
+.book-item {
+  display: flex;
+  align-items: center;
+}
+
+i.fas {
+  font-size: 24px;
+  padding-left: 10px;
+  cursor: pointer;
+  color: red;
+}
+
+.no-items {
+  text-align: center;
+}

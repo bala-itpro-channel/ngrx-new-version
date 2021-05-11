@@ -6,7 +6,7 @@ import * as Actions from './../state/books.actions'
 @Component({
   selector: 'app-create-book',
   templateUrl: './create-book.component.html',
-  styleUrls: ['./create-book.component.css'],
+  styleUrls: ['./create-book.component.scss'],
 })
 export class CreateBookComponent implements OnInit {
 

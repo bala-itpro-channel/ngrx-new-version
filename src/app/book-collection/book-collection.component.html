@@ -1,10 +1,17 @@
-<div 
-  class="book-item"
-  *ngFor="let book of books"
->
-  <p>{{book.volumeInfo.title}}</p><span> by {{book.volumeInfo.authors}}</span>
-  <button
-    (click)="remove.emit(book.id)"
-    data-test="remove-button"
-  >Remove from Collection</button>
-</div>
+<ng-container *ngTemplateOutlet="this.books && books.length ? bookTmpl : noBookTmpl">
+
+</ng-container>
+
+<ng-template #bookTmpl>
+  <div class="book-item" *ngFor="let book of books">
+    <p>{{book.volumeInfo.title}}</p><span> by {{book.volumeInfo.authors}}</span>
+    <i class="fas fa-trash-alt" (click)="remove.emit(book.id)"></i>
+  </div>
+</ng-template>
+
+
+<ng-template #noBookTmpl>
+  <div class="no-items">
+    No items found in your collection
+  </div>
+</ng-template>

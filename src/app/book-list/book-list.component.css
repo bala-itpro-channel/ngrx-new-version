@@ -1,6 +1,6 @@
-div {
+/* div {
   padding: 10px;
-}
+} */
 span {
   margin: 0 10px 0 2px;
 }
@@ -8,4 +8,49 @@ p {
   display: inline-block;
   font-style: italic;
   margin: 0;
+}
+button i.fas {
+  color: white;
+  font-size: 14px;
+}
+i.fas {
+  font-size: 24px;
+  padding-left: 10px;
+  cursor: pointer;
+  color: red;
+}
+
+.book-item {
+  display: flex;
+  align-items: center;
+}
+
+.add-delete {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header {
+  font-size: 16px;
+  font-weight: 600;
+  background: #F6F7F7;
+}
+
+.row {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 6px 0;
+}
+
+.book-item:nth-of-type(odd) {
+  background: #F0F6FC;
+}
+
+.book-item:last-child {
+  border-bottom: 1px solid #DEE2E6;
+}
+
+.book-item:hover {
+  background: #F6F7F7;
 }

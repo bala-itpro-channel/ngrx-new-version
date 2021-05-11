@@ -1,6 +1,8 @@
 <form>
-  <div>
-    <input type="text" #bookName id="bookName" />
-    <button type="button" (click)="creaeBook($event, bookName.value)">Create Book</button>
+  <div class="form-group">
+    <label for="bookName">Book name</label>
+    <input type="text" #bookName class="form-control" id="bookName" aria-describedby="bookName" placeholder="Enter book name">
+    <small id="bookHelp" class="form-text text-muted">please enter book name.</small>
+    <button type="button" class="btn btn-success" (click)="creaeBook($event, bookName.value)">Save</button>
   </div>
 </form>

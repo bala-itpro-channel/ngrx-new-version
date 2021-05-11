@@ -5,3 +5,10 @@
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 // @import "~@fortawesome/fontawesome-free/css/fontawesome.css";
 //@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+h5 {
+  margin-top: 16px;
+  &:first-child {
+    margin-top: 0;
+  }
+}

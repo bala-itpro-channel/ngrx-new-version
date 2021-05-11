@@ -1,16 +1,16 @@
-<h2>Books</h2>
+
+<h5 class="border-bottom border-gray pb-2 mb-0">Books List</h5>
 <app-book-list class="book-list" 
   [books]="books$ | async"
   (add)="onAdd($event)"
-  (delete)="onDelete($event)"
-></app-book-list>
-<h2>Create Book</h2>
+  (delete)="onDelete($event)"></app-book-list>
+
+<h5 class="border-bottom border-gray pb-2 mb-0">Create Book</h5>
 <app-create-book></app-create-book>
 
-<h2>My Collection</h2>
+<h5 class="border-bottom border-gray pb-2 mb-0">My Collection</h5>
 <app-book-collection class="book-collection" [books]="bookCollection$ | async" (remove)="onRemove($event)">
 </app-book-collection>
 
-
-<h2>Dashboard</h2>
+<h5 class="border-bottom border-gray pb-2 mb-0">Dashboard</h5>
 <app-dashboard></app-dashboard>
